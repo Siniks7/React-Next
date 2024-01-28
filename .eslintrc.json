@@ -1,3 +1,37 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "semi": [
+            "error",
+            "always",
+            {
+                "omitLastInOneLineBlock": false
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "react/prop-types": [
+            0
+        ],
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "prefer-const": "error"
+    }
 }
