@@ -1,4 +1,4 @@
-import { Htag } from '@/components';
+import { Button, Htag } from '@/components';
 import { Noto_Sans } from 'next/font/google';
 import React from 'react';
 
@@ -12,6 +12,8 @@ export default function Home() {
 		>
 			<>
 				<Htag tag='h1'>Текст</Htag>
+				<Button appearance='primary'>Кнопка</Button>
+				<Button appearance='ghost'>Кнопка</Button>
 			</>
 		</main>
 	);
