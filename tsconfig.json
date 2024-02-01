@@ -24,8 +24,9 @@
     }
   },
   "include": [
-    "next-env.d.ts",
+    "next-env-custom.d.ts",
     "**/*.ts",
+    "svg.d.ts",
     "**/*.tsx"
   ],
   "exclude": [
