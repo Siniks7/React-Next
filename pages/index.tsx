@@ -1,10 +1,11 @@
 import { Button, Htag, Rating, Tag } from '@/components';
 import { Noto_Sans } from 'next/font/google';
 import React, { useState } from 'react';
+import { withLayout } from '../layout/Layout';
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
-export default function Home() {
+function Home(): JSX.Element {
 	const [rating, setRating] = useState<number>(4);
 
 	return (
@@ -24,3 +25,5 @@ export default function Home() {
 		</main>
 	);
 }
+
+export default withLayout(Home);
