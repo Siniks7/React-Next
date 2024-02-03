@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import styles from './Menu.module.css';
 import cn from 'classnames';
-import { format } from 'date-fns';
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { AppContext } from '../../context/app.context';
 import { FirstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
 import CoursesIcon from './icons/courses.svg';
@@ -10,7 +8,6 @@ import ServicesIcon from './icons/services.svg';
 import BooksIcon from './icons/books.svg';
 import ProductsIcon from './icons/products.svg';
 import { TopLevelCategory } from '../../interfaces/page.interface';
-import { P } from '../../components';
 import Link from 'next/link';
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
@@ -21,6 +18,7 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 ];
 
 export const Menu = (): JSX.Element => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
 
 	const buildFirstLevel = () => {
@@ -61,6 +59,8 @@ export const Menu = (): JSX.Element => {
 	};
 
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
+		console.log(pages);
+		
 		return (
 			pages.map(p => (
 				<Link key={p._id} href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, {

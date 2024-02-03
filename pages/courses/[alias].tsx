@@ -14,7 +14,6 @@ function Course({ menu, page, products }: CourseProps): JSX.Element {
 	return (
 		<>
 			{products && products.length}
-			{products && products.map(prod => <div key={prod._id}>{prod.categories}</div>)}
 		</>
 	);
 }
