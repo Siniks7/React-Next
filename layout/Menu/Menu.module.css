@@ -44,6 +44,14 @@
 	margin-bottom: 20px;
 }
 
+.secondLevelBlock {
+	display: none;
+}
+
+.secondLevelBlockOpened {
+	display: block;
+}
+
 .thirdLevel {
 	margin-bottom: 10px;
 	display: block;
