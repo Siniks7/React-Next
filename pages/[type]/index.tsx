@@ -8,10 +8,11 @@ import { ParsedUrlQuery } from 'node:querystring';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Type({ menu, firstCategory }: TypeProps): JSX.Element {
+	console.log(menu);
 
 	return (
 		<>
-			{menu.flatMap(m => m.pages.map(p => <div key={p._id}>{p.title}</div>))}
+			{menu && menu.flatMap(m => m.pages.map(p => <div key={p._id}>{p.title}</div>))}
 		</>
 	);
 }
@@ -37,15 +38,21 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({ params }: GetS
 			notFound: true
 		};
 	}
-	const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-		firstCategory: firstCategoryItem.id
-	});
-	return {
-		props: {
-			menu,
+	try {
+		const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
 			firstCategory: firstCategoryItem.id
-		}
-	};
+		});	
+		return {
+			props: {
+				menu,
+				firstCategory: firstCategoryItem.id
+			}
+		};
+	} catch {
+		return {
+			notFound: true
+		};
+	}	
 };
 
 interface TypeProps extends Record<string, unknown> {
