@@ -63,7 +63,6 @@ export const Menu = (): JSX.Element => {
 	};
 
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
-		console.log(pages);
 		
 		return (
 			pages.map(p => (

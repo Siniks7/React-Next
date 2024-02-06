@@ -8,7 +8,6 @@ import { ParsedUrlQuery } from 'node:querystring';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Type({ menu, firstCategory }: TypeProps): JSX.Element {
-	console.log(menu);
 
 	return (
 		<>
