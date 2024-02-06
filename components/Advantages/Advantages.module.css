@@ -10,6 +10,9 @@
 	font-weight: bold;
 }
 
-.vline {
-	border-left: 1px solid var(--gray-light);
+.line {
+	width: 1px;  
+	background-color: var(--gray-light);
+	margin: 0;
+	margin-left: 24px;
 }

@@ -10,7 +10,7 @@ export const Advatages = ( { advantages } : AdvantagesProps): JSX.Element => {
 				<div key={a._id} className={styles.advantage}>
 					<CheckIcon />
 					<div className={styles.title}>{a.title}</div>
-					<hr className={styles.vline} />
+					<div className={styles.line}></div>
 					<div>{a.description}</div>
 				</div>
 			))}

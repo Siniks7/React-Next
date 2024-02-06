@@ -1,4 +1,4 @@
-import { HhData, Htag, P, Tag } from '@/components';
+import { HhData, Htag, Tag } from '@/components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import { TopLevelCategory } from '@/interfaces/page.interface';
 import styles from './TopPageComponent.module.css';
@@ -21,12 +21,12 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 				<Tag color='red' size='m'>hh.ru</Tag>
 			</div>
 			{firstCategory == TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
-			{page.advantages && page.advantages.length > 0 && <>
-				<Htag tag='h2'>Преимущства</Htag>
+			{page.advantages && page.advantages.length > 0 && page.advantages[0].title && <>
+				<Htag tag='h2'>Преимущeства</Htag>
 				<Advatages advantages={page.advantages} />
 			</>
 			}
-			{page.seoText && <P>{page.seoText}</P>}
+			{page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />}
 			<Htag tag='h2'>Получаемые навыки</Htag>
 			{page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
 		</div>
