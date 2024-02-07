@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
 import { SortEnum, SortProps } from './Sort.props';
 import styles from './Sort.module.css';
 import SortIcon from './sort.svg';
