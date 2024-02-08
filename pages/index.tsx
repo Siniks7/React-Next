@@ -1,10 +1,11 @@
-import { Button, Htag, Rating, Tag } from '@/components';
+import { Button, Htag, Input, Rating, Tag } from '@/components';
 import { Noto_Sans } from 'next/font/google';
 import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
 import { MenuItem } from '../interfaces/menu.interface';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
+
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
@@ -25,7 +26,7 @@ function Home({ menu }: HomeProps): JSX.Element {
 				<Tag size='s' color='green'>Green</Tag>
 				<Tag color='primary'>Green</Tag>
 				<Rating rating={rating} isEditable setRating={setRating} />
-				
+				<Input placeholder='тест' />
 			</>
 		</main>
 	);
