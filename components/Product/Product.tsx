@@ -11,6 +11,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import { useState } from 'react';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '..';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 
@@ -77,8 +78,12 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 				[styles.closed]: !isReviewOpened
 			})}>
 				{product.reviews.map(r => (
-					<Review key={r._id} review={r} />
+					<>
+						<Review key={r._id} review={r} />
+						<Divider />
+					</>
 				))}
+				<ReviewForm isOpened = {true} productId={product._id} />
 			</Card>
 		</>
 	);
