@@ -7,8 +7,8 @@ import { ForwardedRef, forwardRef } from 'react';
 // eslint-disable-next-line react/display-name
 export const Textarea = forwardRef(({ className, error, ...props }: TextareaProps, ref: ForwardedRef<HTMLTextAreaElement>): JSX.Element => {
 	return (
-		<div className={cn(className, styles.inputWrapper)}>
-			<textarea className={cn(styles.input, {
+		<div className={cn(className, styles.textareaWrapper)}>
+			<textarea className={cn(styles.textarea, {
 				[styles.error]: error
 			})} ref={ref} {...props} />
 			{error && <span role="alert" className={styles.errorMessage}>{error.message}</span>}
