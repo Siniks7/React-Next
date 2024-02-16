@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { declOfNum, priceRu } from '@/helpers/helpers';
 import { ProductProps } from './Product.props';
 import { Card } from '../Card/Card';
@@ -9,15 +8,17 @@ import { Divider } from '../Divider/Divider';
 import styles from './Product.module.css';
 import Image from 'next/image';
 import cn from 'classnames';
-import { useRef, useState } from 'react';
+import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '..';
+import { motion } from 'framer-motion';
 
-export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
-
+// eslint-disable-next-line react/display-name
+export const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+	
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 	const reviewRef = useRef<HTMLDivElement>(null);
-
+	
 	const scrollToReview = () => {
 		setIsReviewOpened(true);
 		reviewRef.current?.scrollIntoView({
@@ -26,9 +27,9 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 		});
 	};
 
-
+	
 	return (
-		<div className={className} {...props}>
+		<div className={className} {...props} ref={ref}>
 			<Card className={styles.product}>
 				<div className={styles.logo}>
 					<Image
@@ -97,4 +98,5 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 			</Card>
 		</div>
 	);
-};
+}));
+
