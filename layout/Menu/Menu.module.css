@@ -40,24 +40,16 @@
 	border-left: 1px solid #DFDFDF;
 }
 
-.secondLevelBlockOpened:last-child {
-	margin-bottom: 20px;
-}
-
 .secondLevelBlock {
-	display: none;
+	overflow: hidden;
 }
 
-.secondLevelBlockOpened {
-	display: block;
-}
 
 .thirdLevel {
 	margin-bottom: 10px;
 	display: block;
-
+	white-space: nowrap;
 	cursor: pointer;
-
 	color: #404046;
 	font-weight: 500;
 	font-size: 14px;
