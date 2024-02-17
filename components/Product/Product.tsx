@@ -26,7 +26,6 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
 			block: 'center'
 		});
 	};
-
 	
 	return (
 		<div className={className} {...props} ref={ref}>
@@ -84,18 +83,20 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
 					>Читать отзывы</Button>
 				</div>
 			</Card>
-			<Card color='blue' className={cn(styles.reviews, {
-				[styles.opened]: isReviewOpened,
-				[styles.closed]: !isReviewOpened
-			})} ref={reviewRef}>
-				{product.reviews.map(r => (
-					<div key={r._id}>
-						<Review  review={r} />
-						<Divider />
-					</div>
-				))}
-				<ReviewForm productId={product._id} />
-			</Card>
+			<motion.div	layout>
+				<Card color='blue' className={cn(styles.reviews, {
+					[styles.opened]: isReviewOpened,
+					[styles.closed]: !isReviewOpened
+				})} ref={reviewRef}>
+					{product.reviews.map(r => (
+						<div key={r._id}>
+							<Review  review={r} />
+							<Divider />
+						</div>
+					))}
+					<ReviewForm productId={product._id} />
+				</Card>
+			</motion.div>
 		</div>
 	);
 }));
