@@ -9,11 +9,8 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-
 	overflow-y: scroll;
-
 	padding: 20px 10px;
-
 	background: #F5F6F8;
 }
 
@@ -29,7 +26,6 @@
 		display: grid;
 		grid-template-columns: 1fr 40px;
 		gap: 10px;
-
 		margin: 15px 15px 0;
 	}
 }
