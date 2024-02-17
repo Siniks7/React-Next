@@ -14,14 +14,13 @@ function Search({ products, firstCategory}: HomeProps): JSX.Element {
 
 	const router = useRouter();
 	const q = router.query.q;
-	console.log(products);
 	
 	return (
 		<>	
 			{!q && <Htag tag='h1'>Продукты не найдены</Htag>}
 			{q && <TopPageComponent
 				firstCategory={firstCategory}
-				products={products.filter(p => p.title.includes(q.toString()))}
+				products={products.filter(p => p.title.toLowerCase().includes(q.toString()))}
 			/>}
 		</>
 	);
@@ -49,7 +48,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			});
 			allProducts.push(products);
 		}
-		const products = allProducts.flat();
+		const products = Array.from(new Set(allProducts.flat()));
 		
 		return {
 			props: {
@@ -63,9 +62,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			notFound: true
 		};
 	}
-	
-	
-
 };
 
 interface HomeProps extends Record<string, unknown> {
