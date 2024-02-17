@@ -8,8 +8,8 @@ import { ParsedUrlQuery } from 'node:querystring';
 import { API } from '@/helpers/api';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function Type({ menu, firstCategory }: TypeProps): JSX.Element {
+
+function Type({ menu}: TypeProps): JSX.Element {
 
 	const router = useRouter();
 

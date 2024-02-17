@@ -23,26 +23,27 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.title}>
-				<Htag tag='h1'>{page.title}</Htag>
+				{page && <Htag tag='h1'>{page.title}</Htag>}
+				{!page && <Htag tag='h1'>Найденные курсы</Htag>}
 				{products && <Tag color='grey' size='m'>{products.length}</Tag>}
 				<Sort sort={sort} setSort={setSort} />
 			</div>
 			<div>
 				{sortedProducts && sortedProducts.map(p => (<Product layout key={p._id} product={p} />))}
 			</div>
-			<div className={styles.hhTitle}>
+			{page && <div className={styles.hhTitle}>
 				<Htag tag='h2'>Вакансии - {page.category}</Htag>
 				<Tag color='red' size='m'>hh.ru</Tag>
-			</div>
-			{firstCategory == TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
-			{page.advantages && page.advantages.length > 0 && page.advantages[0].title && <>
+			</div>}
+			{page && firstCategory == TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
+			{page && page.advantages && page.advantages.length > 0 && page.advantages[0].title && <>
 				<Htag tag='h2'>Преимущeства</Htag>
 				<Advatages advantages={page.advantages} />
 			</>
 			}
-			{page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />}
-			<Htag tag='h2'>Получаемые навыки</Htag>
-			{page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
+			{page && page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />}
+			{page && <Htag tag='h2'>Получаемые навыки</Htag>}
+			{page && page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
 		</div>
 	);
 };

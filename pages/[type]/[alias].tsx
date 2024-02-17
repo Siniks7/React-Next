@@ -11,6 +11,7 @@ import { TopPageComponent } from '../../page-components';
 import { API } from '@/helpers/api';
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
+
 	return <TopPageComponent
 		firstCategory={firstCategory}
 		page={page}
@@ -80,6 +81,6 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
 interface TopPageProps extends Record<string, unknown> {
 	menu: MenuItem[];
 	firstCategory: TopLevelCategory;
-	page: TopPageModel;
+	page?: TopPageModel;
 	products: ProductModel[];
 }

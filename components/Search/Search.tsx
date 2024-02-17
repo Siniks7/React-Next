@@ -7,6 +7,7 @@ import { Button } from '../Button/Button';
 import { useState, KeyboardEvent } from 'react';
 import { useRouter } from 'next/router';
 
+
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
 	const [search, setSearch] = useState<string>('');
 	const router = useRouter();
@@ -45,3 +46,4 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
 		</div>
 	);
 };
+

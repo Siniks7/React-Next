@@ -7,7 +7,7 @@ import { withLayout } from '../layout/Layout';
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function Home(): JSX.Element {
+function Useragreement(): JSX.Element {
 	
 
 	return (
@@ -37,5 +37,5 @@ function Home(): JSX.Element {
 	);
 }
 
-export default withLayout(Home);
+export default withLayout(Useragreement);
 
