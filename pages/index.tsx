@@ -1,34 +1,26 @@
-import { Button, Htag, Input, Rating, Tag, Textarea } from '@/components';
+import { Htag } from '@/components';
 import { Noto_Sans } from 'next/font/google';
-import React, { useState } from 'react';
+import React from 'react';
 import { withLayout } from '../layout/Layout';
 import { MenuItem } from '../interfaces/menu.interface';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
 import { API } from '@/helpers/api';
-
+import Logo from '@/public/next.svg';
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Home({ menu }: HomeProps): JSX.Element {
-	const [rating, setRating] = useState<number>(4);
+	
 
 	return (
 		<main
-			className={`flex min-h-screen flex-col items-center justify-between p-24 ${noto_Sans.className}`}
+			className={`flex flex-col  gap-40 items-center justify-between p-24 ${noto_Sans.className}`}
 		>
 			<>
-				<Htag tag='h1'>Текст</Htag>
-				<Button appearance='primary'>Кнопка</Button>
-				<Button arrow='down' appearance='ghost'>Кнопка</Button>
-				<Tag size='s'>Ghost</Tag>
-				<Tag size='m' color='red'>Red</Tag>
-				<Tag size='s' color='green'>Green</Tag>
-				<Tag color='primary'>Green</Tag>
-				<Rating rating={rating} isEditable setRating={setRating} />
-				<Input placeholder='тест' />
-				<Textarea placeholder='Комментарий'></Textarea>
+				<Htag tag='h1'>Лучшие курсы только для вас!</Htag>
+				<Logo />
 			</>
 		</main>
 	);

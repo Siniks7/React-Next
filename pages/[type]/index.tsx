@@ -6,14 +6,17 @@ import { withLayout } from '../../layout/Layout';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { ParsedUrlQuery } from 'node:querystring';
 import { API } from '@/helpers/api';
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Type({ menu, firstCategory }: TypeProps): JSX.Element {
 
+	const router = useRouter();
+
 	return (
-		<>
-			{menu && menu.flatMap(m => m.pages.map(p => <div key={p._id}>{p.title}</div>))}
-		</>
+		<main className={'grid grid-cols-5 gap-1 items-center'}>
+			{menu && menu.flatMap(m => m.pages.map(p => <Link href={`/${router.asPath}/${p.alias}`} className={' border-solid border-2 bg-indigo-400 p-5 min-h-full text-gray-100'} key={p._id}>{p.title}</Link>))}
+		</main>
 	);
 }
 
