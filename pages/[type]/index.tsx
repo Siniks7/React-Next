@@ -9,12 +9,13 @@ import { API } from '@/helpers/api';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+
 function Type({ menu}: TypeProps): JSX.Element {
 
 	const router = useRouter();
 
 	return (
-		<main className={'grid grid-cols-5 gap-1 items-center'}>
+		<main className={'grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1 items-center'}>
 			{menu && menu.flatMap(m => m.pages.map(p => <Link href={`/${router.asPath}/${p.alias}`} className={' border-solid border-2 bg-indigo-400 p-5 min-h-full text-gray-100'} key={p._id}>{p.title}</Link>))}
 		</main>
 	);

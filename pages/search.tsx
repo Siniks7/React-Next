@@ -14,13 +14,29 @@ function Search({ products, firstCategory}: HomeProps): JSX.Element {
 
 	const router = useRouter();
 	const q = router.query.q;
+	let myProducts: ProductModel[] = [];
+	q ?  myProducts = unique(products.filter(p => p.title.toLowerCase().includes(q.toString()))) : myProducts = [];
+
+	function unique(arr: ProductModel[]): ProductModel[] {
+		const result: ProductModel[] = [];
+		const myRes: string[] = [];
+		for (const el of arr) {
+			
+			if (!myRes.includes(JSON.stringify(el))) {
+				myRes.push((JSON.stringify(el)));
+				result.push(el);
+			}
+		}
+		return result;
+	}
+
 	
 	return (
 		<>	
 			{!q && <Htag tag='h1'>Продукты не найдены</Htag>}
 			{q && <TopPageComponent
 				firstCategory={firstCategory}
-				products={products.filter(p => p.title.toLowerCase().includes(q.toString()))}
+				products={myProducts}
 			/>}
 		</>
 	);
@@ -40,16 +56,19 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			myArray.push(el.pages);
 		}
 		const allMenu = myArray.flat();
-		const allProducts = [];
+		let allProducts: ProductModel[] = [];
 		for (const product of allMenu) {		
 			const { data: products } = await axios.post<ProductModel[]>(API.product.find, {
 				category: product.category,
 				limit: 10
 			});
-			allProducts.push(products);
+			allProducts = allProducts.concat(products);
 		}
-		const products = Array.from(new Set(allProducts.flat()));
-		
+		const products = allProducts;
+		// const products = allProducts.filter((v, i, a) => {
+		// 	a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i;
+		// });
+
 		return {
 			props: {
 				menu,
