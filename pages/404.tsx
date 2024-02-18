@@ -6,7 +6,9 @@ import { GetStaticProps } from 'next';
 import axios from 'axios';
 import { API } from '@/helpers/api';
 
+
 export function Error404(): JSX.Element {
+
 	return (
 		<>
 			<Htag tag='h1'>Ошибка 404</Htag>
@@ -16,7 +18,10 @@ export function Error404(): JSX.Element {
 
 export default withLayout(Error404);
 
+
+
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+
 	const firstCategory = 0;
 	const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
 		firstCategory

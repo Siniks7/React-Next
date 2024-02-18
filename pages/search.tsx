@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { ProductModel } from '@/interfaces/product.interface';
 import { TopPageComponent } from '@/page-components';
 import { Htag } from '@/components';
+import Head from 'next/head';
 
 
 function Search({ products, firstCategory}: HomeProps): JSX.Element {
@@ -33,6 +34,9 @@ function Search({ products, firstCategory}: HomeProps): JSX.Element {
 	
 	return (
 		<>	
+			<Head>
+				<title>MyTop - мой лучший топ</title>
+			</Head>
 			{!q && <Htag tag='h1'>Продукты не найдены</Htag>}
 			{q && <TopPageComponent
 				firstCategory={firstCategory}

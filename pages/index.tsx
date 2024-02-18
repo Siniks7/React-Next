@@ -7,6 +7,8 @@ import { GetStaticProps } from 'next';
 import axios from 'axios';
 import { API } from '@/helpers/api';
 import Logo from '@/public/next.svg';
+import Head from 'next/head';
+
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
@@ -15,14 +17,19 @@ function Home({ menu }: HomeProps): JSX.Element {
 	
 
 	return (
-		<main
-			className={`flex flex-col  gap-40 items-center justify-between p-24 ${noto_Sans.className}`}
-		>
-			<>
+		<>
+			<Head>
+				<title>MyTop - мой лучший топ</title>
+			</Head>
+			<main
+				className={`flex flex-col  gap-40 items-center justify-between p-24 ${noto_Sans.className}`}
+			>
+			
 				<Htag tag='h1'>Лучшие курсы только для вас!</Htag>
 				<Logo />
-			</>
-		</main>
+			
+			</main>
+		</>
 	);
 }
 

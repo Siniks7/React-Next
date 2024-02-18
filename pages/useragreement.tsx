@@ -2,6 +2,7 @@ import { Htag, P } from '@/components';
 import { Noto_Sans } from 'next/font/google';
 import React from 'react';
 import { withLayout } from '../layout/Layout';
+import Head from 'next/head';
 
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
@@ -11,12 +12,16 @@ function Useragreement(): JSX.Element {
 	
 
 	return (
-		<main
-			className={`flex flex-col  gap-40 items-center justify-between p-24 ${noto_Sans.className}`}
-		>
-			<>
-				<Htag tag='h1'>Пользовательское соглашение</Htag>
-				<P> Пользовательское соглашение сайта mysite.ru
+		<>
+			<Head>
+				<title>MyTop - мой лучший топ</title>
+			</Head>
+			<main
+				className={`flex flex-col  gap-40 items-center justify-between p-24 ${noto_Sans.className}`}
+			>
+				<>
+					<Htag tag='h1'>Пользовательское соглашение</Htag>
+					<P> Пользовательское соглашение сайта mysite.ru
 
 Настоящий документ «Пользовательское соглашение» представляет собой предложение ООО «_____» (далее — «Администрация»), заключить договор на изложенных ниже условиях Соглашения.
 1. Общие положения Пользовательского соглашения
@@ -32,8 +37,9 @@ function Useragreement(): JSX.Element {
 
 д) Соглашение - настоящее соглашение со всеми дополнениями и изменениями.</P>
 				
-			</>
-		</main>
+				</>
+			</main>
+		</>
 	);
 }
 
