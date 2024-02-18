@@ -21,7 +21,7 @@ function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
 			firstCategory={firstCategory}
 			page={page}
 			products={products}
-		/>;
+		/>
 	</>;
 }
 
