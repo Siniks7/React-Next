@@ -16,7 +16,7 @@ function Type({ menu}: TypeProps): JSX.Element {
 
 	return (
 		<main className={'grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1 items-center'}>
-			{menu && menu.flatMap(m => m.pages.map(p => <Link href={`/${router.asPath}/${p.alias}`} className={' border-solid border-2 bg-indigo-400 p-5 min-h-full text-gray-100'} key={p._id}>{p.title}</Link>))}
+			{menu && menu.flatMap(m => m.pages.map(p => <Link href={`${router.asPath}/${p.alias}`} className={' border-solid border-2 bg-indigo-400 p-5 min-h-full text-gray-100'} key={p._id}>{p.title}</Link>))}
 		</main>
 	);
 }

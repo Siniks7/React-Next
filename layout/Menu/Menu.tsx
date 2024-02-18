@@ -1,16 +1,39 @@
 import styles from './Menu.module.css';
 import cn from 'classnames';
-import { useContext} from 'react';
+import { useContext, useEffect} from 'react';
 import { AppContext } from '../../context/app.context';
-import { FirstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
+import { FirstLevelMenuItem, MenuItem, PageItem } from '../../interfaces/menu.interface';
 import { firstLevelMenu } from '@/helpers/helpers';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import axios, { isAxiosError } from 'axios';
+import { API } from '@/helpers/api';
+import { TopLevelCategory } from '@/interfaces/page.interface';
+
 
 export const Menu = (): JSX.Element => {	
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
 	const router = useRouter();
+
+	useEffect(() => {
+		setMenu &&	getMenu(firstCategory); 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [firstCategory]);
+
+	async function getMenu(firstCategory: TopLevelCategory) {
+		try {
+			const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
+				firstCategory
+			});
+			setMenu && setMenu(menu);
+		} catch (err) {
+			if (isAxiosError(err)) {
+				console.error(err.toJSON());
+			}		
+		}
+	}
+	
 
 	const variants = {
 		visible: {

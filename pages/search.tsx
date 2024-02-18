@@ -65,9 +65,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			allProducts = allProducts.concat(products);
 		}
 		const products = allProducts;
-		// const products = allProducts.filter((v, i, a) => {
-		// 	a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i;
-		// });
 
 		return {
 			props: {
