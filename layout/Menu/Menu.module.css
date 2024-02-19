@@ -21,22 +21,18 @@
 
 .secondLevel {
 	margin-bottom: 10px;
-
 	cursor: pointer;
 	text-transform: uppercase;
-
 	color: var(--gray-dark);
-
 	font-weight: 300;
 	font-size: 12px;
-	line-height: 16px;
 }
 
 .secondBlock {
 	margin-top: 15px;
 	margin-left: 12px;
 	padding-left: 32px;
-
+	outline-offset: -1px;
 	border-left: 1px solid #DFDFDF;
 }
 

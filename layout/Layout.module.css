@@ -20,8 +20,22 @@
 
 .body {
 	grid-area: body;
-
 	outline: none;
+}
+
+.skipLink {
+	display: block;
+	position: fixed;
+	left: 100px;
+	top: 0;
+	overflow: hidden;
+	height: 0;
+	background: var(--primary);
+	color: var(--white);
+}
+
+.displayed {
+	height: auto;
 }
 
 .footer {
