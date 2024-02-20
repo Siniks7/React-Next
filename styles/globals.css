@@ -33,3 +33,10 @@ a {
 	--font-family: 'Noto Sans KR', sans-serif;
 	--red-light: #fea291;
 }
+
+.visualyHidden {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+}
