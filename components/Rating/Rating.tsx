@@ -95,7 +95,7 @@ export const Rating = forwardRef(({ isEditable = false, error, rating, setRating
 			[styles.error]: error
 		})}>
 			{ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
-			{error && <span className={styles.errorMessage}>{error.message}</span>}
+			{error && <span role="alert" className={styles.errorMessage}>{error.message}</span>}
 		</div>
 	);
 });

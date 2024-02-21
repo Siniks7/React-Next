@@ -137,8 +137,8 @@ export const Menu = (): JSX.Element => {
 	};
 
 	return (
-		<div className={styles.menu}>
+		<nav className={styles.menu} role='navigation'>
 			{buildFirstLevel()}
-		</div>
+		</nav>
 	);
 };
