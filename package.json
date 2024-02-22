@@ -10,18 +10,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "npm run lint:fix",
-      "git add",
-      "echo world"
-    ]
-  },
   "dependencies": {
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
