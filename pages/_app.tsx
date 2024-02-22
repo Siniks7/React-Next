@@ -6,7 +6,7 @@ import { YMInitializer } from 'react-yandex-metrika';
 
 export default function App({ Component, pageProps, router }: AppProps) {
 
-	router.events.on('routeChangeComplete', (url: string) => {
+	router.events?.on('routeChangeComplete', (url: string) => {
 		if (typeof window !== 'undefined') {
 			ym('hit', url);
 		}
