@@ -18,7 +18,8 @@
   "lint-staged": {
     "*.ts": [
       "npm run lint:fix",
-      "git add"
+      "git add",
+      "echo world"
     ]
   },
   "dependencies": {
