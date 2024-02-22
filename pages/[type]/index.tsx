@@ -9,12 +9,9 @@ import { API } from '@/helpers/api';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { Noto_Sans } from 'next/font/google';
-
 
 function Type({ menu}: TypeProps): JSX.Element {
 
-	const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 	const router = useRouter();
 
 	return (
@@ -22,7 +19,7 @@ function Type({ menu}: TypeProps): JSX.Element {
 			<Head>
 				<title>MyTop - мой лучший топ</title>
 			</Head>
-			<main className={`grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1 items-center ${noto_Sans.className}`}>
+			<main className={'grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1 items-center'}>
 				{menu && menu.flatMap(m => m.pages.map(p => <Link href={`${router.asPath}/${p.alias}`} className={' border-solid border-2 bg-indigo-400 p-5 min-h-full text-gray-100'} key={p._id}>{p.title}</Link>))}
 			</main>
 		</>
