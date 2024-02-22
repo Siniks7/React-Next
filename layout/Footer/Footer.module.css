@@ -1,12 +1,8 @@
 .footer {
 	display: grid;
-
 	padding: 25px 30px;
-
 	color: var(--white);
-
 	background: var(--primary);
-
 	font-size: 16px;
 	line-height: 20px;
 	grid-template-columns: 1fr auto auto;
@@ -17,7 +13,7 @@
 	color: var(--gray-light);
 }
 
-@media (max-width: 765px) {
+@media (width <= 765px) {
 	.footer {
 		grid-template-columns: 1fr;
 	}

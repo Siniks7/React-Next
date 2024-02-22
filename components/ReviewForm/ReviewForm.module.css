@@ -57,7 +57,7 @@
 	background: none;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (width <= 1100px) {
 	.reviewForm {
 		grid-template-columns: [start] 1fr 1fr [end];			
 	}
@@ -71,7 +71,7 @@
 	}
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (width <= 640px) {
 	.reviewForm {
 		grid-template-columns: [start] 1fr [end];			
 	}
