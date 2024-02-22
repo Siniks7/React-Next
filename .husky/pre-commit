@@ -3,4 +3,4 @@
 
 npm run lint
 echo 'hello world'
-
+git commit -m "Keep calm and commit"
