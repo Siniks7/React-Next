@@ -2,5 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run lint
-echo 'hello world'
-git commit -m "Keep calm and commit"
+
