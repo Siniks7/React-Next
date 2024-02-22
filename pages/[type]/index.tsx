@@ -12,6 +12,7 @@ import Head from 'next/head';
 
 function Type({ menu}: TypeProps): JSX.Element {
 
+	
 	const router = useRouter();
 
 	return (
