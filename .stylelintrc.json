@@ -1,5 +1,16 @@
 {
     "extends": [
         "stylelint-config-standard"
-    ]
+    ],
+    "rules": {
+        "selector-class-pattern": "^.*$",
+        "declaration-block-no-redundant-longhand-properties": [
+            true,
+            {
+                "ignoreShorthands": [
+                    "/grid/"
+                ]
+            }
+        ]
+    }
 }
