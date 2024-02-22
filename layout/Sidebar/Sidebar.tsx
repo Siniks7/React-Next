@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
+	
 	return (
 		<div className={cn(className, styles.sidebar)} {...props}>
 			<Link href={'/'}><Logo className={styles.logo} /></Link>
