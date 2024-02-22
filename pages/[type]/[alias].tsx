@@ -10,19 +10,26 @@ import { firstLevelMenu } from '../../helpers/helpers';
 import { TopPageComponent } from '../../page-components';
 import { API } from '@/helpers/api';
 import Head from 'next/head';
+import { Noto_Sans } from 'next/font/google';
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
 
-	return <>
+	const noto_Sans = Noto_Sans({ subsets: ['latin'] });
+
+	return <div className={noto_Sans.className}>
 		<Head>
-			<title>MyTop - мой лучший топ</title>
+			<title>{page ? page.metaTitle : 'MyTop - мой лучший топ'}</title>
+			<meta name="description" content={page ? page.metaDescription : ''} />
+			<meta property="og:title" content={page ? page.metaTitle : ''} />
+			<meta property="og:description" content={page ? page.metaDescription : ''} />
+			<meta property="og:type" content="article" />
 		</Head>
 		<TopPageComponent
 			firstCategory={firstCategory}
 			page={page}
 			products={products}
 		/>
-	</>;
+	</div>;
 }
 
 export default withLayout(TopPage);
