@@ -25,6 +25,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
 			options={{ webvisor: true, defer: true }}
 			version="2"
 		/>
-		<Component {...pageProps} />;
+		<Component {...pageProps} />
 	</>;
 }

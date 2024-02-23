@@ -27,7 +27,6 @@ function Home({ menu }: HomeProps): JSX.Element {
 			
 				<Htag tag='h1'>Лучшие курсы только для вас!</Htag>
 				<Logo />
-			
 			</main>
 		</>
 	);
