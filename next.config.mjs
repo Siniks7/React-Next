@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true

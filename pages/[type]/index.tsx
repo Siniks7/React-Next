@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
+
 function Type({ menu}: TypeProps): JSX.Element {
 
 	
