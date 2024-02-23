@@ -2,6 +2,7 @@ module.exports = {
 	images: {
 		domains: ['courses-top.ru']
 	},
+	staticPageGenerationTimeout: 1000,
 	webpack(config) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',
